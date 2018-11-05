@@ -133,4 +133,11 @@ public class ComplexTest {
         Complex c2 = new Complex(real, imaginary);
         assertEquals(c1.hashCode(), c2.hashCode());
     }
+
+    @Test
+    void testComplexReal()
+    {
+        assertEquals(two, Complex.real(2));
+        assertNotEquals(twoI, Complex.real(2));
+    }
 }
