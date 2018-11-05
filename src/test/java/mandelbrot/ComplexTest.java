@@ -163,4 +163,11 @@ public class ComplexTest {
         assertEquals(2, oneMinusI.squaredModulus());
         assertEquals(3*3+5*5, new Complex(3, 5).squaredModulus());
     }
+
+    @Test
+    void testModulus()
+    {
+        assertEquals(Math.sqrt(oneMinusI.squaredModulus()), oneMinusI.modulus());
+        assertEquals(Math.sqrt(2*2+3*3), new Complex(2, 3).modulus());
+    }
 }
