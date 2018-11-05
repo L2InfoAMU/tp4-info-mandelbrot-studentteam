@@ -179,4 +179,12 @@ public class ComplexTest {
         assertEquals(Complex.ONE, Complex.ONE.pow(5));
         assertEquals(minusI, Complex.I.pow(2));
     }
+
+    @Test
+    void testScale()
+    {
+        assertEquals(new Complex(2, 2), onePlusI.scale(2));
+        assertEquals(new Complex(-1, -1), onePlusI.scale(-1));
+        assertEquals(oneMinusI, new Complex(-1, 1).scale(-1));
+    }
 }
