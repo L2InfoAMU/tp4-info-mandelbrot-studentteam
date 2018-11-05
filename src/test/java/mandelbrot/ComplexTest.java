@@ -140,4 +140,12 @@ public class ComplexTest {
         assertEquals(two, Complex.real(2));
         assertNotEquals(twoI, Complex.real(2));
     }
+
+    @Test
+    void testAdd()
+    {
+        assertEquals(Complex.ONE, Complex.ZERO.add(Complex.ONE));
+        assertEquals(new Complex(2, 2), two.add(twoI));
+        assertEquals(oneMinusI, minusI.add(Complex.ONE));
+    }
 }
