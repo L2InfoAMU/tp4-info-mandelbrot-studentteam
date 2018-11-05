@@ -62,7 +62,7 @@ public class Complex {
      * @return a complex number, whose multiplication corresponds to a rotation by the given angle.
      */
     static Complex rotation(double radians) {
-        return new Complex(-Math.cos(radians), Math.sin(radians));
+        return new Complex(Math.cos(radians), Math.sin(radians));
     }
 
     /**
@@ -188,7 +188,7 @@ public class Complex {
      */
     Complex pow(int p) {
         if (p == 0)
-            return ZERO;
+            return ONE;
         Complex result = (this.multiply(this)).pow(p / 2);
         if (p % 2 == 1)
             result = result.multiply(this);
@@ -202,7 +202,7 @@ public class Complex {
      * @return the complex number <code>lambda * this</code>
      */
     public Complex scale(double lambda) {
-        return new Complex(lambda * real, lambda + imaginary);
+        return new Complex(lambda * real, lambda * imaginary);
     }
 
 
@@ -213,8 +213,8 @@ public class Complex {
         if (o == null || getClass() != o.getClass())
             return false;
         Complex complex = (Complex) o;
-        return Helpers.doubleCompare(complex.real, real) == 0 ||
-                Helpers.doubleCompare(complex.imaginary, imaginary) == 0;
+        return Helpers.doubleCompare(complex.real, real)==0 &&
+                Helpers.doubleCompare(complex.imaginary, imaginary)==0;
     }
 
     @Override
